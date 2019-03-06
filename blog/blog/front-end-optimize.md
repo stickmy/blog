@@ -17,8 +17,6 @@ meta:
 
 随着 `Angular`, `React`, `Vue` 等框架以及 `webpack` 的出现, 前端优化已经变成了怎么细分组件, 怎么利用 `webpack` 做 `code-spliting` 以及利用 `ssr` 做首屏直出的主场, 那么我们今天就从浏览器解析 `html` 的角度来讲一讲前端优化
 
-<!-- more -->
-
 ### script 标签
 
 我们知道在 `html` 中 一个普通的 `script` 标签是按他们在文档中出现的顺序来加载的
@@ -32,7 +30,7 @@ meta:
     <script type="text/javascript" src="example/2.js"></script>
   </head>
   <body>
-    
+
   </body>
 </html>
 ```
@@ -70,7 +68,7 @@ meta:
     <script defer="defer" type="text/javascript" src="example/2.js"></script>
   </head>
   <body>
-    
+
   </body>
 </html>
 ```

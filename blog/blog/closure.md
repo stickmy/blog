@@ -16,7 +16,6 @@ meta:
 **闭包**
 > 闭包就是指能够访问自由变量的函数
 
-<!-- more -->
 **自由变量**
 > 自由变量是指函数中使用的既不是函数参数也不是函数局部变量的变量
 
@@ -32,7 +31,7 @@ function b() {
 再来一个栗子：
 ```javascript
 function foo(x, y) {
-    console.log(x, y) //此处的 x y 相对于 foo 都不是自由变量 
+    console.log(x, y) //此处的 x y 相对于 foo 都不是自由变量
     function bar() {
         console.log(x, y) // 此处的 x y 相对于 bar 都是自由变量
     }

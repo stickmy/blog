@@ -2,7 +2,7 @@
 title: React-Router 原理分析
 date: 2018-04-07 13:53:18
 type: post
-tag: 
+tag:
   - js
   - react
 meta:
@@ -19,8 +19,6 @@ meta:
 ## history
 
 `react-router` 依赖一个第三方库 [history](https://github.com/ReactTraining/history), 这个库兼容了不同浏览器, 不同环境下对浏览器历史记录的管理, 拥有统一的 `api`,那我们就先看一下这个库
-
-<!-- more -->
 
 它有三种模式:
 
@@ -220,7 +218,7 @@ class Route extends React.Component {
     path: PropTypes.string,
     // 是否精确匹配, true: path === location.pathname => true
     // case: true:  /one /one/two ===> false
-    exact: PropTypes.bool, 
+    exact: PropTypes.bool,
     // 是否匹配 '/'
     //  /one/ /one ===> false
     //  /one/ /one/ ===> true
@@ -315,7 +313,7 @@ class Route extends React.Component {
     if (typeof children === "function") return children(props);
 
     if (children && !isEmptyChildren(children))
-      // router v4 中, route 只允许有一个子组件 
+      // router v4 中, route 只允许有一个子组件
       return React.Children.only(children);
 
     return null;
@@ -331,6 +329,6 @@ class Route extends React.Component {
 
 我们将上述的零碎的东西串联起来:
 
-点击 `Link` 或者 `push(path)` 时调用 `history.push` 去改变浏览器的 `url` 同时返回 `location` 对象, 然后触发 `Router` 中的设置的 `history.listen` 监听函数回调, 回调将 `location` 放到 `getChildContext` 中, 然后每个路由组件 `Route` 都会更新, 在 `componentWillReceiveProps` 中执行匹配函数 `mathPath`, 匹配成功则渲染, 否则不渲染, 这样每次 `Router` 都只会渲染一个 `Route` 组件. 
+点击 `Link` 或者 `push(path)` 时调用 `history.push` 去改变浏览器的 `url` 同时返回 `location` 对象, 然后触发 `Router` 中的设置的 `history.listen` 监听函数回调, 回调将 `location` 放到 `getChildContext` 中, 然后每个路由组件 `Route` 都会更新, 在 `componentWillReceiveProps` 中执行匹配函数 `mathPath`, 匹配成功则渲染, 否则不渲染, 这样每次 `Router` 都只会渲染一个 `Route` 组件.
 
 小小吐槽一下: `v4.0` 这样做, `Route` 中不能再嵌套 `Route`, 版本升级 `api` 变动太大.

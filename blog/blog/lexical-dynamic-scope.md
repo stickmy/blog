@@ -13,8 +13,6 @@ meta:
 ### 作用域是什么
 > 作用域(scope)是指名字(name)与实体(entity)的绑定(binding)保持有效的那部分计算机程序 [wiki](https://zh.wikipedia.org/wiki/%E4%BD%9C%E7%94%A8%E5%9F%9F)
 
-<!-- more -->
-
 **作用域规定了如何查找变量**
 
 ### 词法作用域与动态作用域

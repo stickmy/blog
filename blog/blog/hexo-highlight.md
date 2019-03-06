@@ -15,8 +15,6 @@ meta:
 ![](https://blog-1252181333.cos.ap-shanghai.myqcloud.com/blog/hexo-highlight-1.png)
 发现代码区域的关键字的`class`为`keyword`
 
-<!-- more -->
-
 然后，发现`highlight`官网给出样式是下图这样的
 ![](https://blog-1252181333.cos.ap-shanghai.myqcloud.com/blog/hexo-highlight-2.png)
 

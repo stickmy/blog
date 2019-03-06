@@ -14,14 +14,12 @@ meta:
 
 原因: 打包后以相对路径去访问静态资源目录, 导致没有找到资源
 
-解决方案: 
+解决方案:
 `index.html`中加入下面这一行
 
 ```html
 <base href="/" />
 ```
-
-<!-- more -->
 
 > HTML <base> 元素 指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个<base>元素。 --- [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base)
 
@@ -33,7 +31,7 @@ meta:
 
 解决方案:
 这里给出一个 `nginx` 的方案:
-既然我们知道了出错的原因, 自然而然能想到一个方案, 就是让所有的请求都指向 `index.html`, 
+既然我们知道了出错的原因, 自然而然能想到一个方案, 就是让所有的请求都指向 `index.html`,
 子路由转交给 `React-Router` 处理
 
 ```nginx

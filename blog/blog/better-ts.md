@@ -33,7 +33,6 @@ const plugins = {
 ```
 
 这是一个插件系统, 我们有如上两个插件, 第一个用来当我们 hover 在元素上的时候, 显示一些 hover 样式, 第二个用来当我们拖拽该元素的时候, 显示一些拖拽的工具栏.
-<!-- more -->
 
 可以看出每个 plugin 是由一个 React Component 和 初始的 state 以及 一个对应的 reducer 组成, 所以这里应该可以看出整个的插件系统的设计, 把每个 plugin 中的 state 组成一个总的 state, 每个 reducer 组成一个 combined reducer, 然后有一个总的 Provider 接受这个 redux context, 分发 props 给每个 plugin 中的 component 组成的 `this.props.children`.
 

@@ -19,7 +19,6 @@ sudo apt-get install axel
 # 待补充
 ```
 
-<!-- more -->
 ### nginx
 
 访问[ nginx ](http://nginx.org/)选择一个版本下载到服务器

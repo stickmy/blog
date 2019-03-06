@@ -15,7 +15,6 @@ meta:
 图中的两种动画有什么区别
 
 ![](https://blog-1252181333.cossh.myqcloud.com/blog/css-anmiation-carbon.png)
-<!-- more -->
 
 ## 分析
 

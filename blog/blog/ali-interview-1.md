@@ -13,7 +13,6 @@ meta:
 ---
 
 写这篇文章记录总结一下拿到阿里 offer 的历程, 一共持续快两个月, 当然从标题看来, 应该知道这一次国际 UED 是挂了的(笑).
-<!-- more -->
 
 ### 介绍
 
@@ -35,7 +34,7 @@ meta:
 
 4. **react `setState` 的同步异步, 什么时候是同步的, 什么时候是异步的?**
 
-这一块之前看过文章了解过, 主要是取决于 `batchingStrategy.isBatchingUpdates` 这个变量, 然后面试官问了一个问题: 
+这一块之前看过文章了解过, 主要是取决于 `batchingStrategy.isBatchingUpdates` 这个变量, 然后面试官问了一个问题:
 
 > 在 window 上绑定一个原生的事件监听函数, 在这个函数中去执行 setState, 是同步还是异步?
 
@@ -62,7 +61,7 @@ meta:
 
 隔了一天, 有面试官联系我笔试时间, 说到时候会有一封邮件发过来. 约在了当时的明天晚上 8 点.
 
-大概到了第二天晚上 8:15 的样子, 有一封邮件到了, 是一个阿里的伯乐系统的链接, 点进去是一个写代码的界面, 一共三道题, 可以开视频, 语音(不过我没开), 还有一个界面可以随时跟面试官交流, (不要妄想百度搜索之类, 据说这个网页有监控, 如果你离开了这个网页的页面, 会有提示, 在面试官眼中是不诚信的表现了, 基本被挂). 
+大概到了第二天晚上 8:15 的样子, 有一封邮件到了, 是一个阿里的伯乐系统的链接, 点进去是一个写代码的界面, 一共三道题, 可以开视频, 语音(不过我没开), 还有一个界面可以随时跟面试官交流, (不要妄想百度搜索之类, 据说这个网页有监控, 如果你离开了这个网页的页面, 会有提示, 在面试官眼中是不诚信的表现了, 基本被挂).
 
 1. 第一题: **数组去重**
 
@@ -87,10 +86,10 @@ function removeDuplicateEs5(array) {
 ```js
 function main(array) {
   var hash = {};
-  
+
   return array.filter((item, index, array) => {
-    return hash.hasOwnProperty(typeof item + item) 
-      ? false 
+    return hash.hasOwnProperty(typeof item + item)
+      ? false
       : (hash[typeof item + item] = true)
   })
 }
@@ -105,7 +104,7 @@ function main(array) {
 ```js
 function convertPascal(object) {
   var newObject = {}
-  
+
 	const convert = key => key.replace(/\_(\w)/g, (all, t) => {
     return t.toUpperCase()
   });
@@ -114,7 +113,7 @@ function convertPascal(object) {
     const newKey = convert(key);
     newObject[newKey] = object[key];
   })
-    
+
   return newObject;
 }
 ```
@@ -184,7 +183,7 @@ Sub.prototype = Object.create(Superman.prototype, {
 不熟的东西, 千万不要说啊!!!
 :::
 
-大概 30 分钟就结束了, 面完之后觉得要挂, 果然一般面试者的直觉都是很准的, 华丽丽挂掉了. 
+大概 30 分钟就结束了, 面完之后觉得要挂, 果然一般面试者的直觉都是很准的, 华丽丽挂掉了.
 
 评语是: 业务相关的稍弱.
 

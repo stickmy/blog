@@ -2,7 +2,7 @@
 title: 从源码看 redux 机制
 date: 2018-04-04 17:52:04
 type: post
-tag: 
+tag:
   - react
   - redux
 meta:
@@ -18,8 +18,6 @@ meta:
 #### 1. redux
 
 我们看下 `redux` 源码
-
-<!-- more -->
 
 **[createStore](https://github.com/reactjs/redux/blob/master/src/createStore.js):**
 
@@ -184,7 +182,7 @@ store.dispatch({ type: 'REMOVE' })
 ```js
 function createProvider(storeKey = 'store', subKey) {
   const subscriptionKey = subKey || `${storeKey}Subscription`
-  
+
   class Provider extends React.Component {
     // 定义 getChildContext, 这样子组件可以直接获取到 store
     getChildContext() {
@@ -268,7 +266,7 @@ function createConnect() {
           */
         const stateProps = mapStateToProps(store.getState())
         // 这边将传进来的 mapDispatchToProps, 经过 bindActionCreators 包裹了一下
-        // bindActionCreators 其实就是: 
+        // bindActionCreators 其实就是:
         // (...args) => dispatch(mapDispatchToProps(...args))
         // 见 [bindActionCreators](https://github.com/reactjs/redux/blob/master/src/bindActionCreators.js)
         // 这里你似乎有一个疑问, dispatch 的参数是 action
@@ -278,7 +276,7 @@ function createConnect() {
           props: {
             ...this.state.props,
             ...stateProps,
-            ...dispatchProps  
+            ...dispatchProps
           }
         })
       }
@@ -315,7 +313,7 @@ function applyMiddleware(...middlewares) {
       dispatch: (...args) => _dispatch(...args)
     }
 
-    /** 
+    /**
       * 这里给每个中间件都传入了 getState 和 dispatch 方法
       * 从这里看, 中间件经过的几次调用
       * 1. middleware(middlewareAPI), 将 middlewareAPI 传入中间件

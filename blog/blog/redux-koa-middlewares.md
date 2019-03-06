@@ -2,7 +2,7 @@
 title: Redux 与 Koa 中间件对比
 date: 2018-06-15 00:11:09
 type: post
-tag: 
+tag:
   - koa
   - react
   - redux
@@ -19,7 +19,7 @@ meta:
 好吧, 这两个其实根本不是一个类型的东西, 一个是 `nodejs` 框架, 一个是数据流管理方案. 不过, 我还是要来对比...
 
 虽然, 他们不是一种东西, 但是从他们的中间件的角度来看, 其实实现了同一种效果. 所以我们来对比一下实现的差异
-<!-- more -->
+
 ### Redux
 
 我们看下 `applyMiddleware` 这个方法
@@ -40,7 +40,7 @@ function applyMiddleware (...middlewares) {
          * 这里可以看出每一个中间件都应该是一个三阶的函数
          * 1. 第一阶用于传入 middlewareAPI, return next => action
          * 2. 第二阶用于传入 store.dispatch, return action => {}
-         * 3. 第三阶用于留给用户调用 
+         * 3. 第三阶用于留给用户调用
          */
         chain = middlewares.map(middleware => middleware(middlewareAPI))
 
@@ -61,7 +61,7 @@ function compose (...funcs) {
   if (funcs.length === 0) {
     return arg => arg
   }
-  
+
   if (funcs.length === 1) {
     return funcs[0]
   }
@@ -90,15 +90,15 @@ const logger2 = ({ getState, dispatch }) => next => action => {
 }
 ```
 
-调用他们: 
+调用他们:
 
 ```js
 const store = createStore(0, reducer, applyMiddleware(logger1, logger2))
 ```
 
-结果的输出顺序是什么? 可以 `clone` 这个仓库 [redux-play](https://github.com/Bloss/redux-play) 的代码, 运行一下, 看看结果 
+结果的输出顺序是什么? 可以 `clone` 这个仓库 [redux-play](https://github.com/Bloss/redux-play) 的代码, 运行一下, 看看结果
 
-打印日志: 
+打印日志:
 
 ```js
 `logger1 start`
