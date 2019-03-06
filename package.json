@@ -1,7 +1,7 @@
 {
   "name": "docanary-blog",
   "dependencies": {
-    "docanary": "^0.0.20",
+    "docanary": "^0.0.21",
     "react": "16.7.0-alpha.0",
     "react-dom": "16.7.0-alpha.0"
   },
