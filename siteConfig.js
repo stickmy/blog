@@ -9,6 +9,6 @@ module.exports = {
   },
   palette: {
     codeBgColor: 'rgba(27,31,35,.05)',
-    themeColor: '#466bb5',
+    themeColor: '#d23669',
   },
 }
