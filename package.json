@@ -1,0 +1,13 @@
+{
+  "name": "docanary-blog",
+  "dependencies": {
+    "docanary": "^0.0.19",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
+  },
+  "peerDependencies": {
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
+  },
+  "license": "MIT"
+}
