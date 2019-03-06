@@ -12,11 +12,11 @@ meta:
     content: pixelRatio scale viewport
 ---
 
-### 为什么比设计稿大了一倍？
+## 为什么比设计稿大了一倍？
 
 某日, 我拿到设计稿的时候, 在 `css` 写下了 `width: 200; height: 200`, 运行, 尼玛怎么大了一倍？！！ 然后经过一下午我就写了这篇文章
 
-### 关于像素的几个概念
+## 关于像素的几个概念
 
 - 设备像素 (dp)
 
@@ -56,11 +56,11 @@ dpr = 设备像素 / 设备独立像素
 
 没错，css 像素就是设备独立像素，他们与设备像素的区别在于：他们是可拉伸的，而设备像素是固定的，不变的。
 
-### 为什么会大了一倍
+## 为什么会大了一倍
 
 设计稿是按 `iPhone6` 来设计的, 而 `iPhone6` 的 `dpr` 为 2, 根据上面的公式，css 像素为物理像素的一半，这就解释了为什么会大了一倍
 
-### viewport
+## viewport
 
 这里有三个概念
 
@@ -76,12 +76,12 @@ dpr = 设备像素 / 设备独立像素
 
 理想视口，通过 `<meta name="viewport" content="width=device-width,initial-scale=1">` 设置，即可获得每个设备的 `ideal viewport`
 
-### scale 是在缩放什么
+## scale 是在缩放什么
 
 浏览器的缩放很诡异，这个缩放系数跟 `visual viewport` 的宽度成反比，缩放系数越大，`visual viewport` 宽度越小，所以最小的缩放系数 `minimum-scale` 决定了 `visual viewport` 的最大宽度
 
 我们有时候会发现不同设备上的 `1px` 的粗细不一样，这就是因为他们的 `1px` 所对应的设备像素不一样，要解决这个问题，设置 `scale = 1 / dpr` 即可，事实上也可以根据这个特性来做适配，可以参考淘宝 [flexible](https://github.com/amfe/lib-flexible) 方案
 
-### 吐槽
+## 吐槽
 
 总体来说这上面的概念还是有点多的，而且容易乱，如果能看完还保持清醒，那应该是搞懂了~

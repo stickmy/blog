@@ -15,45 +15,45 @@ meta:
     content: redux koa middleware 中间件
 ---
 
-### 先扯淡
+## 先扯淡
 好吧, 这两个其实根本不是一个类型的东西, 一个是 `nodejs` 框架, 一个是数据流管理方案. 不过, 我还是要来对比...
 
 虽然, 他们不是一种东西, 但是从他们的中间件的角度来看, 其实实现了同一种效果. 所以我们来对比一下实现的差异
 
-### Redux
+## Redux
 
 我们看下 `applyMiddleware` 这个方法
 
 ```js
 function applyMiddleware (...middlewares) {
-    return createStore => (...args) => {
-        const store = createStore(...args)
-        let dispatch = store.dispatch
+  return createStore => (...args) => {
+    const store = createStore(...args)
+    let dispatch = store.dispatch
 
-        let chain = []
+    let chain = []
 
-        const middlewareAPI = {
-            getState: store.getState,
-            dispatch: (...args) => dispatch(...args)
-        }
-        /**
-         * 这里可以看出每一个中间件都应该是一个三阶的函数
-         * 1. 第一阶用于传入 middlewareAPI, return next => action
-         * 2. 第二阶用于传入 store.dispatch, return action => {}
-         * 3. 第三阶用于留给用户调用
-         */
-        chain = middlewares.map(middleware => middleware(middlewareAPI))
-
-        /**
-         * compose 函数会将所有的中间件串联成一个中间件, 中间件会从左到右依次执行
-         */
-        dispatch = compose(...chain)(store.dispatch)
-
-        return {
-            ...store,
-            dispatch
-        }
+    const middlewareAPI = {
+      getState: store.getState,
+      dispatch: (...args) => dispatch(...args)
     }
+    /**
+      * 这里可以看出每一个中间件都应该是一个三阶的函数
+      * 1. 第一阶用于传入 middlewareAPI, return next => action
+      * 2. 第二阶用于传入 store.dispatch, return action => {}
+      * 3. 第三阶用于留给用户调用
+      */
+    chain = middlewares.map(middleware => middleware(middlewareAPI))
+
+    /**
+      * compose 函数会将所有的中间件串联成一个中间件, 中间件会从左到右依次执行
+      */
+    dispatch = compose(...chain)(store.dispatch)
+
+    return {
+      ...store,
+      dispatch
+    }
+  }
 }
 
 // [a, b, c] => (...args) => a(b(c(...args)))
@@ -125,7 +125,7 @@ const store = createStore(0, reducer, applyMiddleware(logger1, logger2))
 
 看到这里, 可以明白 `redux` 中间件的工作原理了: 后面一个中间件的 `next` 会被前一个中间件包裹, 所以每个中间件执行到 `next` 的时候都会阻塞, 然后去执行下一个中间件的 `next`. 所有 `next` 执行结束之后, `next` 后面的代码再反向执行
 
-### Koa
+## Koa
 
 `koa` 在 `http.createServer ` 中的 `callback` 中执行了一段代码 `compose(this.middleware)`. 这段代码是中间件执行的关键. 这段代码跟 `redux` 中的 `compose` 作用其实是一样的: 将 `middlewares` 串联成一个函数执行
 
@@ -171,7 +171,7 @@ function compose (middleware) {
 ----------       开始回溯执行      ----------
 ```
 
-### 不算小结的小结
+## 不算小结的小结
 
 - `koa` 中间件天生支持异步操作, 而 `redux` 需要诸如 `redux-thunk` 这样的东西来实现异步, 原理就是将 `disptach` 转移给用户, 让用户选择何时执行, 譬如 `Promise` 执行完毕后再 `dispatch`
 

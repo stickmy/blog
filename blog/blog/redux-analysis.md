@@ -15,7 +15,7 @@ meta:
 
 从几个方面来说:
 
-#### 1. redux
+## 1. redux
 
 我们看下 `redux` 源码
 
@@ -167,7 +167,7 @@ store.dispatch({ type: 'REMOVE' })
 
 但是似乎这样的写法, 跟我们预期甚远, 因为这样太过繁琐, 耦合度太高, 我们需要抽象, 这就是 `react-redux` 了
 
-#### 2. react-redux
+## 2. react-redux
 
 我们常用的 `react-redux` api, 一般有 `connect`, `Provider` 组件等等, 我们将根组件用 `Provider` 包裹起来, 然后我们子组件就能拿到 `store` 分发下来的值了
 
@@ -292,7 +292,7 @@ export default createConnect()
 
 我们看出 `connect` 就是为我们传入的组件注入需要的 `props` 和 `dispatch` 方法, 同时利用 `createStore` 暴露出来的 `subScribe` 方法注册一个 `store` 的监听函数, 这个监听函数获取到最新的 `state`, 当做参数传给 `mapStateToProps`, 这样当 `store` 变化的时候, 我们的组件就能接受到最新的 `props`
 
-#### 3. applyMiddleware
+## 3. applyMiddleware
 
 上面我们提到了 `redux-thunk`, 它其实就是中间件的一种, 中间件可以加强我们的 `createStore` 方法
 
@@ -351,7 +351,7 @@ function compose(...funcs) {
 
 看到这里可能你对这个函数还是云里雾里, 这里我们结合 `redux-thunk` 这个实例来看下
 
-#### 4. redux-thunk
+## 4. redux-thunk
 
 **看代码 [redux-thunk](https://github.com/gaearon/redux-thunk/blob/master/src/index.js)**
 

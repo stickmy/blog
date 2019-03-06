@@ -10,7 +10,7 @@ meta:
     content: webpack 前端
 ---
 
-### 打包后访问不到静态资源目录
+## 打包后访问不到静态资源目录
 
 原因: 打包后以相对路径去访问静态资源目录, 导致没有找到资源
 
@@ -23,7 +23,7 @@ meta:
 
 > HTML <base> 元素 指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个<base>元素。 --- [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base)
 
-### 使用 browserHistory 时, 直接访问子路由 404
+## 使用 browserHistory 时, 直接访问子路由 404
 
 原因: 当直接访问或者刷新子路由时, 浏览器会向服务器请求 `example.com/child`, 服务器
 会去根目录下找 `child.html` 文件, 但是我们服务器实际上并没有这样的物理路径文件, 因为

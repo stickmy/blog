@@ -10,7 +10,7 @@ meta:
     content: linux
 ---
 
-### tools
+## tools
 
 ```bash
 # 多线程下载工具
@@ -19,7 +19,7 @@ sudo apt-get install axel
 # 待补充
 ```
 
-### nginx
+## nginx
 
 访问[ nginx ](http://nginx.org/)选择一个版本下载到服务器
 
@@ -48,7 +48,7 @@ make file
 make && make install
 ```
 
-### git
+## git
 
 ssh-key
 
@@ -67,7 +67,7 @@ cat ~/.ssh/id_rsa.pub
 
 复制公钥到 `git` 服务器的 `ssh-keys` 列表中
 
-### python
+## python
 
 pip
 
