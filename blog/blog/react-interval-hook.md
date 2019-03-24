@@ -18,9 +18,11 @@ useInterval(() => {
 
 可以注意到我们的 setInterval 是接受一个 dealy 值的, 并且这个值是可以由我们的代码控制的, 这意味着我们可以随时调整这个值来做动态的改变.
 
-## class component 实现
+大概像这样:
 
-<iframe src="https://codesandbox.io/embed/84vk10xpl8?fontsize=12" style="width:100%; height:240px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe src="https://codesandbox.io/embed/znjqq2ry1x?autoresize=1&fontsize=14&hidenavigation=1&view=preview" style="width:100%; height:240px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+## class component 实现
 
 ```js {13-27}
 class Counter extends React.Component {
@@ -173,7 +175,7 @@ function setInterval(callback, delay) {
 		// 每次运行当前 ref 最新的 callback
 		// 不要用赋值语句 (tick = savedCallback.current)，否则仍然是之前的引用
 		const tick = () => savedCallback.current();
-		if (delay !== null) {
+		if (delay !== undefined) {
 			const id = setInterval(tick, delay);
 			return () => clearInterval(id);
 		}
