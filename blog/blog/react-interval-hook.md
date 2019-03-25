@@ -126,7 +126,7 @@ function Counter() {
 
 发生了什么?!
 
-这其实是个很常见的闭包问题, 也有了对应的 [PR](https://github.com/facebook/react/pull/14636).
+这其实是个很常见的闭包问题, 也有了对应的 [lint](https://github.com/facebook/react/pull/14636).
 
 我们的 effects 现在只会运行一次, 所以 effects 每次捕获的 count 值都是第一次 render 的 count 值(0), 所以 `count + 1` 一直是 1
 
