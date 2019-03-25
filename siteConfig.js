@@ -11,4 +11,5 @@ module.exports = {
     codeBgColor: 'rgba(27,31,35,.05)',
     themeColor: '#d23669',
   },
+  experimental: false
 }

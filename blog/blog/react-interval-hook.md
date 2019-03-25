@@ -186,3 +186,79 @@ function setInterval(callback, delay) {
 我们可以用这个 hook 做一些更加好玩的事 -- 用一个 interval 控制另一个 interval 的速度
 
 <iframe src="https://codesandbox.io/embed/72z7p6qqv6?autoresize=1&fontsize=14&hidenavigation=1&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+
+## 练习
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(`Clicked ${count} times`);
+    }, 3000);
+  });
+
+  return [
+    <h1>{count}</h1>,
+    <button onClick={() => setCount(count + 1)}>click me</button>
+  ];
+}
+```
+
+猜猜打印结果
+
+<iframe src="https://codesandbox.io/embed/wn334jz34w?autoresize=1&fontsize=14&hidenavigation=1&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+看看 class component 的表现如何
+
+```js
+class Counter extends React.Component {
+  state = {
+    count: 0
+  };
+
+  componentDidUpdate() {
+    setTimeout(() => {
+      console.log(`Clicked ${this.state.count} times`);
+    }, 3000);
+  }
+
+  render() {
+    const { count } = this.state;
+    return [
+      <h1>{count}</h1>,
+      <button onClick={() => this.setState({ count: count + 1 })}>
+        click me
+      </button>
+    ];
+  }
+}
+```
+
+<iframe src="https://codesandbox.io/embed/7yr03kqq2q?autoresize=1&fontsize=14&hidenavigation=1&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+如何改造上面的 class component?!
+
+hook 版本的又如何表现的和 class component 一样?!
+
+<iframe src="https://codesandbox.io/embed/v3jnwn84q0?autoresize=1&fontsize=14&hidenavigation=1&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+  const saved = useRef(count);
+
+  useEffect(() => {
+    saved.current = count;
+    setTimeout(() => {
+      console.log(`Clicked ${saved.current} times`);
+    }, 3000);
+  });
+
+  return [
+    <h1>{count}</h1>,
+    <button onClick={() => setCount(count + 1)}>click me</button>
+  ];
+}
+```
