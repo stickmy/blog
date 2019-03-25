@@ -151,7 +151,7 @@ function setInterval(callback) {
 
 	useEffect(() => {
 		// 每次运行当前 ref 最新的 callback
-		// 不要用赋值语句 (tick = savedCallback.current)，否则仍然是之前的引用
+		// 不要用赋值语句 (tick = savedCallback.current), 否则构成了闭包, 缓存了值
 		const tick = () => savedCallback.current();
 		const id = setInterval(tick, 1000);
 		return () => clearInterval(id);
