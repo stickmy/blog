@@ -1,7 +1,7 @@
 ---
 id: parserc
 title: Parserc
-date: 2019-08-231 15:49
+date: 2019-08-31 15:49
 ---
 
 一些 paserc 的备忘录, 可以用 [Hoogle](https://hoogle.haskell.org) 查询
