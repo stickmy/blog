@@ -148,3 +148,5 @@ f = do
 - Functor 使用 fmap 或者 <$> 将一个普通函数 (a -> b) 应用于一个被封装的值 (m a) 上
 - Applicative 使用 <*> 将一个被封装的函数 (m a -> m b) 应用于一个被封装的值(m a)上
 - Monad 使用 >>= 将一个被封装的值 (m a) 应用到一个接受普通值返回封装值的函数上 (a -> m b )，返回 m b
+
+关于更多的 Monad 可以阅读 [http://learnyouahaskell.com/a-fistful-of-monads](http://learnyouahaskell.com/a-fistful-of-monads)
