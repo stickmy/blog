@@ -20,7 +20,7 @@ meta:
 
 通过 index type query 和 index access operator 做 tagged union type：
 
-```tsx
+```ts
 interface Cat {
     name: string;
     miao(): string;
